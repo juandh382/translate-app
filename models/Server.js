@@ -30,7 +30,7 @@ class Server {
         this.middlewares();
         this.routes();
         this.app.listen(this.port, () => {
-            // console.clear();
+            console.clear();
             console.log('Server running on port', this.port);
         });
     }
