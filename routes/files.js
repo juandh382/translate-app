@@ -8,6 +8,7 @@ const { handleFiles } = require('../controller/files');
 
 
 // Routes
+
 router.post('/', [
     upload.fields([
         { name: 'docx', maxCount: 1 },
