@@ -1,11 +1,13 @@
 const router = require('express').Router();
-const multer = require('multer');
+
+// Middlewares
+const { upload } = require('../middlewares/upload');
+
+// Controllers
 const { handleFiles } = require('../controller/files');
 
-const upload = multer({
-    dest: 'uploads/'
-})
 
+// Routes
 router.post('/', [
     upload.fields([
         { name: 'docx', maxCount: 1 },

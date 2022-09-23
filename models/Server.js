@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 class Server {
+
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
@@ -29,7 +30,7 @@ class Server {
         this.middlewares();
         this.routes();
         this.app.listen(this.port, () => {
-            console.clear();
+            // console.clear();
             console.log('Server running on port', this.port);
         });
     }

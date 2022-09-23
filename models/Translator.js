@@ -7,7 +7,6 @@ class Translator {
     
     constructor() {
         this.doc = new Docxtemplater();
-        
     }
 
 }
