@@ -15,7 +15,7 @@ const translateDox = (glossary, docx) => {
                 let docxContent = html;
                 for (let i = 0; i < lines.length; i++) {
                     const [key, value] = lines[i].split('=');
-                    docxContent = docxContent.toLocaleLowerCase().replaceAll(key.toLocaleLowerCase().trim(), value.toLocaleLowerCase().trim());
+                    docxContent = docxContent.replace(new RegExp(key.trim(), 'ig'), value.trim());
                 }
                 resolve(docxContent);
             })
