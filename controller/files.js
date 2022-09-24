@@ -1,13 +1,24 @@
 const { response } = require('express');
+const path = require('path')
 const translateDox = require('../helpers/translateDox');
 
 const handleFiles = async (req, res = response) => {
     const { glossary, docx } = req.body;
+
     try {
-        const translation = await translateDox(glossary, docx)
+    
+        const { result, fileName } = await translateDox(glossary, docx);
+    
+        if (!fileName) {
+            return res.status(500).json({
+                ok: false,
+                msg: result
+            });
+        }
+
         return res.status(200).json({
             ok: true,
-            msg: translation
+            msg: fileName
         });
 
     } catch (error) {
@@ -20,5 +31,5 @@ const handleFiles = async (req, res = response) => {
 }
 
 module.exports = {
-    handleFiles
+    handleFiles,
 }
